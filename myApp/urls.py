@@ -4,10 +4,10 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-      path('', views.main),
-      path('resume/', views.resume),
-      path('projects/', views.projects),
-      path('contact/', views.contact)
+      path('', views.main, name='home'),
+      path('resume/', views.resume, name='resume'),
+      path('projects/', views.projects, name='projects'),
+      path('contact/', views.contact, name='contact')
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)

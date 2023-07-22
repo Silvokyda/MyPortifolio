@@ -47,10 +47,10 @@
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h2 class="text-primary fw-bolder mb-0">Experience</h2>
                                 <!-- Download resume button-->
-                                <div class="btn btn-primary px-4 py-3">
+                                <button id="printButton" class="btn btn-primary px-4 py-3">
                                     <div class="d-inline-block bi bi-download me-2"></div>
-                                    <button id="printButton">Download Resume</button>
-                                </div>
+                                   Download Resume
+                                </button>
                             </div>
                             <div id="sectionToPrint">
                                 <!-- Experience Card 1-->
@@ -209,11 +209,10 @@
         <script src="{% static 'script.js' %}"></script>
         <script>
             function printSection() {
-                var prtContent = document.getElementById("sectionToPrint");
-                var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
-                WinPrint.document.write(prtContent.innerHTML);
+                var prtContent = document.getElementById("sectionToPrint").innerHTML;
+                var WinPrint = window.open('', '', 'width=800,height=900');
+                WinPrint.document.write('<html><head><title>Print Section</title></head><body>' + prtContent + '</body></html>');
                 WinPrint.document.close();
-                WinPrint.focus();
                 WinPrint.print();
                 WinPrint.close();
             }

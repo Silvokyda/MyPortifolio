@@ -118,35 +118,6 @@
                                 <!-- Submit Button-->
                                 <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton"
                                         type="submit">Submit</button></div>
-                                <script>
-                                    // Function to handle form submission
-                                    function handleFormSubmission() {
-                                        const form = document.getElementById('contactForm');
-                                        const formData = new FormData(form);
-
-                                        fetch('{% url "contact_form_submission" %}', {
-                                            method: 'POST',
-                                            body: formData
-                                        })
-                                            .then(response => response.json())
-                                            .then(data => {
-                                                if (data.success) {
-                                                    // Hide the form and display the success message
-                                                    form.classList.add('d-none');
-                                                    document.getElementById('successMessage').classList.remove('d-none');
-                                                } else {
-                                                    // Handle errors here if needed
-                                                    console.error(data.error);
-                                                }
-                                            })
-                                            .catch(error => {
-                                                console.error('An error occurred during form submission:', error);
-                                            });
-                                    }
-
-                                    // Add an event listener to the submit button
-                                    document.getElementById('submitButton').addEventListener('click', handleFormSubmission);
-                                </script>
                             </form>
                         </div>
                     </div>

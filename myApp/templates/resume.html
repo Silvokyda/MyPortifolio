@@ -47,10 +47,10 @@
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h2 class="text-primary fw-bolder mb-0">Experience</h2>
                                 <!-- Download resume button-->
-                                <button class="btn btn-primary px-4 py-3" id="printButton">
+                                <div class="btn btn-primary px-4 py-3">
                                     <div class="d-inline-block bi bi-download me-2"></div>
-                                    Download Resume
-                                </button>
+                                    <button id="printButton">Download Resume</button>
+                                </div>
                             </div>
                             <div id="sectionToPrint">
                                 <!-- Experience Card 1-->
@@ -217,7 +217,7 @@
                 WinPrint.print();
                 WinPrint.close();
             }
-            
+    
             // Event listener to trigger the printing when the button is clicked
             document.getElementById('printButton').addEventListener('click', printSection);
         </script>

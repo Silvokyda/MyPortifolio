@@ -212,10 +212,20 @@
             function printSection() {
                 var prtContent = document.getElementById("sectionToPrint").innerHTML;
                 var WinPrint = window.open('', '', 'width=800,height=900');
+    
+                // Clone and append relevant stylesheets to the print window
+                var stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+                stylesheets.forEach(function (stylesheet) {
+                    var clonedStylesheet = stylesheet.cloneNode(true);
+                    WinPrint.document.head.appendChild(clonedStylesheet);
+                });
+    
+                // Write the content and close the document
                 WinPrint.document.write('<html><head><title>Print Section</title></head><body>' + prtContent + '</body></html>');
-                WinPrint.document.close();
+    
+                // Wait for the print dialog to close and then close the window
+                WinPrint.focus();
                 WinPrint.print();
-                
             }
     
             // Event listener to trigger the printing when the button is clicked

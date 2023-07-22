@@ -7,11 +7,13 @@
 // Use this file to add JavaScript to your project
 
 function printSection() {
-    var originalContents = document.body.innerHTML;
-    var section = document.getElementById('sectionToPrint').innerHTML;
-    document.body.innerHTML = section;
-    window.print();
-    document.body.innerHTML = originalContents;
+    var prtContent = document.getElementById("sectionToPrint");
+    var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+    WinPrint.document.write(prtContent.innerHTML);
+    WinPrint.document.close();
+    WinPrint.focus();
+    WinPrint.print();
+    WinPrint.close();
 }
 
 // Event listener to trigger the printing when the button is clicked

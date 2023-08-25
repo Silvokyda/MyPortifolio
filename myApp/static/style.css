@@ -11732,3 +11732,41 @@ html {
     left: -2vw;
   }
 }
+
+.star {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('https://w7.pngwing.com/pngs/134/138/png-transparent-star-golden-stars-angle-3d-computer-graphics-symmetry-thumbnail.png'); 
+  background-size: cover;
+}
+
+.star.filled {
+  background-image: url('https://w7.pngwing.com/pngs/134/138/png-transparent-star-golden-stars-angle-3d-computer-graphics-symmetry-thumbnail.png'); 
+}
+
+
+.swiper-container {
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-slide {
+  width: 18rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow: hidden; /* Hide overflowing content */
+  transition: transform 0.2s ease-in-out;
+  transform-origin: center;
+}
+
+.swiper-slide:hover {
+  transform: scale(1.05);
+}
+
+.review {
+  max-height: 100%;
+  overflow: hidden;
+}

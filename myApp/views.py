@@ -1,10 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.mail import send_mail
+from .forms import ReviewForm
+from .models import CustomerReview
 from django.http import JsonResponse
 
 # Create your views here.
 def main(request):
-    return render(request, "index.html")
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # Redirect to the same page after submission
+    reviews = CustomerReview.objects.all()
+    context = {'reviews': reviews}
+    return render(request, 'index.html', context)
 
 def resume(request):
     return render(request, "resume.html")
